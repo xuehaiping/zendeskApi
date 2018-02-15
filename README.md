@@ -23,7 +23,7 @@ npm install
 node server.js
 ```
 
-### open a chrome browser with localhost:8083 for testing
+### open a chrome browser with localhost:8081 for testing
 
 ### to change user name and password, change the following field in server.js, this app use token to authenticate user
 
