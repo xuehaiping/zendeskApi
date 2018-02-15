@@ -1,0 +1,22 @@
+curl https://internproject.zendesk.com/api/v2/imports/tickets.json \
+  -v -u claymoresq@gmail.com:58870514 -X POST \
+  -d @tickets.json \
+  -H "Content-Type: application/json"
+
+
+
+  curl https://internproject.zendesk.com/api/v2/groups.json \
+    -v -u claymoresq@gmail.com:58870514
+
+
+
+    curl https://internproject.zendesk.com/api/v2/job_statuses.json \
+  -v -u claymoresq@gmail.com:58870514
+
+  curl https://internproject.zendesk.com/api/v2/imports/tickets.json \
+    -v -u claymoresq@gmail.com:58870514
+
+
+    curl https://internproject.zendesk.com/api/v2/imports/tickets/create_many.json -v -u claymoresq@gmail.com:58870514 -X POST -d @tickets.json -H "Content-Type:application/json"
+
+token: UMqCnddXK8kXp1thNshLa2Wocv7ETUqdytX6Z0Ae

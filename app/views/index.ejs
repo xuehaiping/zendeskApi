@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Zendesk Tickets Viewer</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css"></script>
+    <script>
+        $(document).ready(function() {
+        $('#ticketList').DataTable({
+         "searching": false,
+         "paging": true,
+         "lengthChange":false
+        });
+    } );
+    </script>
+
+  </head>
+  <body>
+    <div class="container">
+      <div class = "page-header">
+       <h1>
+          Ticket Viewer
+          <small>Ticket Subject List</small>
+       </h1>
+      </div>
+      <form action="/" method="get">
+        <input name="refresh" type="hidden" value="true">
+        <button type="submit" class="btn btn-success" style="float:right"> Refresh ticktes data</button>
+      </form>
+      <% if(tickets !== null){ %>
+        <div class="alert alert-success">
+          <strong>Success!</strong> Successfully loaded tickets.
+        </div>
+        <table id="ticketList" class="table table-striped table-bordered" cellspacing="0" width="100%" data-page-length='25'>
+        					<thead>
+        						<tr>
+                      <th>Subject</th>
+        						</tr>
+        					</thead>
+        					<tbody>
+                    <% Object.keys(tickets).forEach(function(prop) { %>
+                      <tr>
+                        <td>
+                          <form action="/ticketView" method="post">
+                            <input name="ticketKey" type="hidden" value="<%- prop%>">
+                           <input type="submit" class="btn btn-primary-outline" value="<%- tickets[prop].subject %>" style="width:100%">
+                          </form>
+                        </td>
+                    </tr>
+                    <% });%>
+                </tbody>
+        </table>
+      <% } %>
+      <% if(error !== null){ %>
+        <div class="alert alert-danger">
+          <strong>Eorror!</strong> <%= error %>
+        </div>
+      <% } %>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Single Ticket viewer</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class = "page-header">
+       <h1>
+          Ticket detail for
+          <small><%- JSON.stringify(ticket.subject) %></small>
+       </h1>
+    </div>
+      <table class="table">
+        <tbody>
+          <% Object.keys(ticket).forEach(function(prop) { %>
+            <tr>
+              <td>
+                <%- prop %>
+              </td>
+              <td>
+                <%- JSON.stringify(ticket[prop]) %>
+              </td>
+          </tr>
+          <% });%>
+        </tbody>
+      </table>
+        <form action="/" method="get">
+          <button type="submit" class="btn btn-primary" style="float: right">Back</button>
+        </form>
+    </div>
+  </body>
+</html>
