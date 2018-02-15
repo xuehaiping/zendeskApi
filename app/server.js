@@ -51,9 +51,9 @@ app.get('/', function (req, res) {
   if(ticketData.get() === undefined || req.query.refresh === 'true') {
     // create a zendesk client
     var client = zendesk.createClient({
-      username:  'claymoresq@gmail.com',
-      token:     'UMqCnddXK8kXp1thNshLa2Wocv7ETUqdytX6Z0Ae',
-      remoteUri: 'https://internproject.zendesk.com/api/v2'
+      username:  '',
+      token:     '',
+      remoteUri: ''
     });
 
     // create a observer to query all tickets
